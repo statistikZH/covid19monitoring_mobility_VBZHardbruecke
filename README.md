@@ -1,0 +1,2 @@
+# covid19monitoring_mobility_VBZ_Hardbruecke
+Besucherfrequenzen ÖV-Zählstelle Hardbrücke

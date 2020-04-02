@@ -35,7 +35,7 @@ hardoev<-data.frame(date=as.POSIXct(paste(rownames(oevtot), "00:00:00", sep=" ")
                     source="VBZ",
                     update="täglich",
                     public="ja",
-                    description="https://github.com/statistikZH/covid19monitoring_mobility_SlowTraffic")
+                    description="https://github.com/statistikZH/covid19monitoring_mobility_VBZHardbruecke")
 
 #write the final file for publication
 write.table(hardoev, "Mobility_VBZHardbruecke.csv", sep=",", fileEncoding="UTF-8", row.names = F)

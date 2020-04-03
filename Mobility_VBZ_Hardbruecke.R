@@ -10,8 +10,8 @@ library(reshape)
 
 ################################
 # Download data
-urlfile="https://data.stadt-zuerich.ch/dataset/55c68924-bb53-40a4-8f62-69e063cb2afe/resource/0132f2f4-3d62-4765-bcd8-05994add7127/download/frequenzen_hardbruecke_2020.csv"
-zhoev<-data.frame(read_csv(url(urlfile)))
+urlfile="https://data.stadt-zuerich.ch/dataset/55c68924-bb53-40a4-8f62-69e063cb2afe/resource/54cf237c-136d-44de-8ce1-b2a8b5945c3a/download/frequenzen_hardbrueck_2020.csv"
+zhoev<-data.frame(read.csv(url(urlfile)))
 ################################
 # 
 zhoev$date<-date(as.POSIXct(zhoev$Timestamp))
@@ -19,6 +19,7 @@ zhoev$date<-date(as.POSIXct(zhoev$Timestamp))
 zhoev<-subset(zhoev, date!=Sys.Date())
 #Aggregate der Zähllinien pro tag (date) In und Out Zusammengezählt
 oevtot<-with(zhoev, tapply(In+Out, list(date, Name), sum))
+
 
 hardoev<-data.frame(date=as.POSIXct(paste(rownames(oevtot), "00:00:00", sep=" ")),
                     value=round(apply(oevtot[,c("Ost-Nord total",

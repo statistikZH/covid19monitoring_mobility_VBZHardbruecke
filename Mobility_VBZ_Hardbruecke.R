@@ -41,4 +41,4 @@ hardoev<-data.frame(date=as.POSIXct(paste(rownames(oevtot), "00:00:00", sep=" ")
 write.table(hardoev, "Mobility_VBZHardbruecke.csv", sep=",", fileEncoding="UTF-8", row.names = F)
 
 range(hardoev$date)
-
+range(zhoev$date)

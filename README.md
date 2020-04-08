@@ -5,9 +5,10 @@ Dieses Skript bringt die Daten der [VBZ-Zählstelle Hardbrücke](https://data.st
 **Methodisches**<br>
 Die Frequenzen (beide Richtungen IN und OUT) der Zähllinien "Ost-Nord total","Ost-SBB total", "Ost-Süd total", "West-Nord total", "West-SBB total",  "Ost-Süd total" werden zu einem Tagestotal aggregiert. Der aktuelle Tag wird, da noch unvollständig, weggelassen.
 
-**Weitere Informationen**<br>
-[Projektseite: "Gesellschafsmonitoring COVID19"](https://github.com/statistikZH/covid19monitoring)<br>
-[Datenbezug](https://www.web.statistik.zh.ch/covid19_indikatoren_uebersicht/#/)
+**Weitere Informationen** <br>
+[Projektseite: "Gesellschafsmonitoring COVID19"](https://github.com/statistikZH/covid19monitoring) <br>
+[Datenbezug](https://www.web.statistik.zh.ch/covid19_indikatoren_uebersicht/#/) <br>
+[Visualisierung](https://www.web.statistik.zh.ch/cms_vis/covid19_indikatoren/) <br>
 
 
 

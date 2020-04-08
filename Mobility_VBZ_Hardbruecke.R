@@ -10,7 +10,7 @@ library(reshape)
 
 ################################
 # Download data
-urlfile="https://data.stadt-zuerich.ch/dataset/55c68924-bb53-40a4-8f62-69e063cb2afe/resource/57c4e02f-6772-496e-9d72-016ae56f30e1/download/frequenzen_hardbruecke_2020.csv"
+urlfile="https://data.stadt-zuerich.ch/dataset/55c68924-bb53-40a4-8f62-69e063cb2afe/resource/5baeaf58-9af2-4a39-a357-9063ca450893/download/frequenzen_hardbruecke_2020.csv"
 
 zhoev<-data.frame(read.csv(url(urlfile), encoding = "UTF-8"))
 ################################

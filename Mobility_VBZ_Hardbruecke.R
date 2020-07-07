@@ -1,13 +1,12 @@
 # Mobility__VBZ_Hardbruecke.R
 # Import libraries
-require(tidyquant)
 require(xts)
 require(anytime)
 library (readr)
 library (lattice)
 library(chron)
 library(reshape)
-
+require(tidyquant)
 ################################
 # Download data
 urlfile="https://data.stadt-zuerich.ch/dataset/55c68924-bb53-40a4-8f62-69e063cb2afe/resource/5baeaf58-9af2-4a39-a357-9063ca450893/download/frequenzen_hardbruecke_2020.csv"

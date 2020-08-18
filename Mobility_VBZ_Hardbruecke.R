@@ -6,7 +6,7 @@ library (readr)
 library (lattice)
 library(chron)
 library(reshape)
-require(tidyquant)
+library(tidyquant)
 ################################
 # Download data
 urlfile="https://data.stadt-zuerich.ch/dataset/55c68924-bb53-40a4-8f62-69e063cb2afe/resource/5baeaf58-9af2-4a39-a357-9063ca450893/download/frequenzen_hardbruecke_2020.csv"
@@ -19,6 +19,14 @@ zhoev$date<-date(as.POSIXct(zhoev$Timestamp))
 zhoev<-subset(zhoev, date!=Sys.Date())
 #Aggregate der Zähllinien pro tag (date) In und Out Zusammengezählt
 oevtot<-with(zhoev, tapply(In+Out, list(date, Name), sum))
+
+#Imputation der Missings im Ost-SBB-Total im August
+oevtot2<-data.frame(oevtot)
+
+model<-lm(Ost.SBB.total~oevtot2$Ost.VBZ.Total, data=oevtot2)
+
+pred<-predict(model, oevtot2)
+oevtot[as.character(seq(as.Date("2020-08-02"), as.Date("2020-08-13"), by=1)),2]<-round(pred[as.character(seq(as.Date("2020-08-02"), as.Date("2020-08-13"), by=1))])
 
 
 hardoev<-data.frame(date=as.POSIXct(paste(rownames(oevtot), "00:00:00", sep=" ")),

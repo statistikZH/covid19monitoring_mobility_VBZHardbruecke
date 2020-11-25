@@ -29,7 +29,7 @@ pred<-predict(model, oevtot2)
 oevtot[as.character(seq(as.Date("2020-08-02"), as.Date("2020-08-13"), by=1)),2]<-round(pred[as.character(seq(as.Date("2020-08-02"), as.Date("2020-08-13"), by=1))])
 
 
-hardoev<-data.frame(date=as.POSIXct(paste(rownames(oevtot), "00:00:00", sep=" ")),
+hardoev<-data.frame(date=as.Date(rownames(oevtot)),
                     value=round(apply(oevtot[,c("Ost-Nord total",
                                                 "Ost-SBB total", 
                                                 "Ost-Süd total",
@@ -47,6 +47,8 @@ hardoev<-data.frame(date=as.POSIXct(paste(rownames(oevtot), "00:00:00", sep=" ")
 
 #write the final file for publication
 write.table(hardoev, "Mobility_VBZHardbruecke.csv", sep=",", fileEncoding="UTF-8", row.names = F)
+
+View(oevtot)
 
 range(hardoev$date)
 range(zhoev$date)

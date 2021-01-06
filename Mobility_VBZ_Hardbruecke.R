@@ -6,15 +6,20 @@ library (readr)
 library (lattice)
 library(chron)
 library(reshape)
-library(tidyquant)
 ################################
 # Download data
-urlfile="https://data.stadt-zuerich.ch/dataset/55c68924-bb53-40a4-8f62-69e063cb2afe/resource/5baeaf58-9af2-4a39-a357-9063ca450893/download/frequenzen_hardbruecke_2020.csv"
+urlfile2020<-"https://data.stadt-zuerich.ch/dataset/55c68924-bb53-40a4-8f62-69e063cb2afe/resource/5baeaf58-9af2-4a39-a357-9063ca450893/download/frequenzen_hardbruecke_2020.csv"
+urlfile2021<-"https://data.stadt-zuerich.ch/dataset/55c68924-bb53-40a4-8f62-69e063cb2afe/resource/2f27e464-4910-46bf-817b-a9bac19f86f3/download/frequenzen_hardbruecke_2021.csv"
 
-zhoev<-data.frame(read.csv(url(urlfile), encoding = "UTF-8"))
+zhoev2020<-data.frame(read.csv(url(urlfile2020), encoding = "UTF-8"))
+zhoev2021<-data.frame(read.csv(url(urlfile2021), encoding = "UTF-8"))
+
+zhoev<-rbind(zhoev2020, zhoev2021)
+
+
 ################################
 # 
-zhoev$date<-date(as.POSIXct(zhoev$Timestamp))
+zhoev$date<-as.Date(as.POSIXct(zhoev$Timestamp))
 # ohne aktuellen Tag
 zhoev<-subset(zhoev, date!=Sys.Date())
 #Aggregate der Zähllinien pro tag (date) In und Out Zusammengezählt

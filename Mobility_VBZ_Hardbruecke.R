@@ -19,7 +19,7 @@ zhoev<-rbind(zhoev2020, zhoev2021)
 
 ################################
 # 
-zhoev$date<-as.Date(as.POSIXct(zhoev$Timestamp))
+zhoev$date<-as.Date((substring(zhoev$Timestamp, 1, 10)))
 # ohne aktuellen Tag
 zhoev<-subset(zhoev, date!=Sys.Date())
 #Aggregate der Zähllinien pro tag (date) In und Out Zusammengezählt

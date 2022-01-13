@@ -10,11 +10,14 @@ library(reshape)
 # Download data
 urlfile2020<-"https://data.stadt-zuerich.ch/dataset/55c68924-bb53-40a4-8f62-69e063cb2afe/resource/5baeaf58-9af2-4a39-a357-9063ca450893/download/frequenzen_hardbruecke_2020.csv"
 urlfile2021<-"https://data.stadt-zuerich.ch/dataset/55c68924-bb53-40a4-8f62-69e063cb2afe/resource/2f27e464-4910-46bf-817b-a9bac19f86f3/download/frequenzen_hardbruecke_2021.csv"
+urlfile2022<-"https://data.stadt-zuerich.ch/dataset/vbz_frequenzen_hardbruecke/download/frequenzen_hardbruecke_2022.csv"
+
 
 zhoev2020<-data.frame(read.csv(url(urlfile2020), encoding = "UTF-8"))
 zhoev2021<-data.frame(read.csv(url(urlfile2021), encoding = "UTF-8"))
+zhoev2022<-data.frame(read.csv(url(urlfile2022), encoding = "UTF-8"))
 
-zhoev<-rbind(zhoev2020, zhoev2021)
+zhoev<-rbind(zhoev2020, zhoev2021, zhoev2022)
 
 
 ################################
